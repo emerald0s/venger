@@ -194,39 +194,39 @@
 
         <div class="gallery">
             <div class="gallery-item">
-                <img src="pics/GetImage.jpg" onclick="openModal(0)">
+                <img src="pics/GetImage.jpg">
             </div>
 
             <div class="gallery-item">
-                <img src="pics/90089185_136133974609628_2531136854858509099_n.jpg" onclick="openModal(0)">
+                <img src="pics/90089185_136133974609628_2531136854858509099_n.jpg">
             </div>
 
             <div class="gallery-item">
-                <img src="pics/89477420_498120114432834_6004819497717677126_n.jpg" onclick="openModal(0)">
+                <img src="pics/89477420_498120114432834_6004819497717677126_n.jpg">
             </div>
 
             <div class="gallery-item">
-                <img src="pics/89385354_204197647483331_4226804155895057781_n.jpg" onclick="openModal(0)">
+                <img src="pics/89385354_204197647483331_4226804155895057781_n.jpg">
             </div>
 
             <div class="gallery-item">
-                <img src="pics/90031306_506891396668004_6301638787155542718_n.jpg" onclick="openModal(0)">
+                <img src="pics/90031306_506891396668004_6301638787155542718_n.jpg">
             </div>
 
             <div class="gallery-item">
-                <img src="pics/IMG-20241230-WA0004.jpg" onclick="openModal(0)">
+                <img src="pics/IMG-20241230-WA0004.jpg">
             </div>
 
             <div class="gallery-item">
-                <img src="pics/IMG-20250126-WA0006.jpg" onclick="openModal(0)">
+                <img src="pics/IMG-20250126-WA0006.jpg">
             </div>
 
             <div class="gallery-item">
-                <img src="pics/STK-20250127-WA0008.jpg" onclick="openModal(0)">
+                <img src="pics/STK-20250127-WA0008.jpg">
             </div>
 
             <div class="gallery-item">
-                <img src="pics/STK-20250220-WA0008.jpg" onclick="openModal(0)">
+                <img src="pics/STK-20250220-WA0008.jpg">
             </div>
         </div>
     </main>
@@ -250,13 +250,17 @@
 
     <script>
         const images = [
-            "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/images%20%283%29-a1sOk8NzRcqHFWzNCRkdyV7bYq0dzz.jpeg",
-            "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/89477420_498120114432834_6004819497717677126_n.jpg-5hLndc0yQu8XgdCDfQ7geePmUEbD5G.jpeg",
-            "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/90031306_506891396668004_6301638787155542718_n.jpg-BZUtYWL6UpGmPwD141JxjMcwP20Ozp.jpeg",
-            "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/89385354_204197647483331_4226804155895057781_n.jpg-a38jeImbeR7J2LQ5kqnUJQ35aZsJLB.jpeg",
-            "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/90089185_136133974609628_2531136854858509099_n.jpg-wqnjVxTZBuMmMI1t3x0vwIELS3vYGa.jpeg"
+            "pics/GetImage.jpg",
+            "pics/90089185_136133974609628_2531136854858509099_n.jpg",
+            "pics/89477420_498120114432834_6004819497717677126_n.jpg",
+            "pics/89385354_204197647483331_4226804155895057781_n.jpg",
+            "pics/90031306_506891396668004_6301638787155542718_n.jpg",
+            "pics/IMG-20241230-WA0004.jpg",
+            "pics/IMG-20250126-WA0006.jpg",
+            "pics/STK-20250127-WA0008.jpg",
+            "pics/STK-20250220-WA0008.jpg"
         ];
-        
+
         let currentImageIndex = 0;
 
         function openModal(index) {
@@ -289,6 +293,14 @@
             }
         });
 
+        // Add click event listeners to gallery items
+        document.addEventListener('DOMContentLoaded', () => {
+            const galleryItems = document.querySelectorAll('.gallery-item img');
+            galleryItems.forEach((img, index) => {
+                img.addEventListener('click', () => openModal(index));
+            });
+        });
+
         // Preload images
         window.addEventListener('load', function() {
             images.forEach(src => {
@@ -299,4 +311,3 @@
     </script>
 </body>
 </html>
-
