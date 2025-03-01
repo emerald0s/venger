@@ -7,26 +7,15 @@ export default function Gallery() {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null)
 
   const images = [
-    {
-      src: "pics/GetImage.jpg",
-      alt: "Portrait photo",
-    },
-    {
-      src: "pics/90089185_136133974609628_2531136854858509099_n.jpg",
-      alt: "Travel photo with mask",
-    },
-    {
-      src: "pics/89477420_498120114432834_6004819497717677126_n.jpg",
-      alt: "Outdoor photo in field",
-    },
-    {
-      src: "pics/89385354_204197647483331_4226804155895057781_n.jpg",
-      alt: "Barcelona viewpoint photo",
-    },
-    {
-      src: "pics/90031306_506891396668004_6301638787155542718_n.jpg",
-      alt: "Hiking photo with cap",
-    },
+    { src: "pics/GetImage.jpg", alt: "Portrait photo" },
+    { src: "pics/90089185_136133974609628_2531136854858509099_n.jpg", alt: "Travel photo with mask" },
+    { src: "pics/89477420_498120114432834_6004819497717677126_n.jpg", alt: "Outdoor photo in field" },
+    { src: "pics/89385354_204197647483331_4226804155895057781_n.jpg", alt: "Barcelona viewpoint photo" },
+    { src: "pics/90031306_506891396668004_6301638787155542718_n.jpg", alt: "Hiking photo with cap" },
+    { src: "pics/IMG-20241230-WA0004.jpg", alt: "Image 6" },
+    { src: "pics/IMG-20250126-WA0006.jpg", alt: "Image 7" },
+    { src: "pics/STK-20250127-WA0008.jpg", alt: "Image 8" },
+    { src: "pics/STK-20250220-WA0008.jpg", alt: "Image 9" },
   ]
 
   const closeModal = () => setSelectedImageIndex(null)
