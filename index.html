@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asaf Venger's Digital Footprint</title>
     <style>
-        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -13,10 +12,9 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif; /* Improved typography */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: rgb(249, 250, 251);
             min-height: 100vh;
-            overflow-x: hidden; /* Avoid horizontal scrolling */
         }
 
         header {
@@ -51,6 +49,8 @@
             font-weight: bold;
             margin-bottom: 1.5rem;
             text-align: center;
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            letter-spacing: -0.025em;
         }
 
         .about-section p {
@@ -58,11 +58,22 @@
             color: #4b5563;
         }
 
-        /* Responsive Gallery */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Flexible grid */
+            grid-template-columns: repeat(1, 1fr);
             gap: 1.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .gallery {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
         .gallery-item {
@@ -83,15 +94,8 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0; /* For fade-in animation */
-            transition: opacity 0.5s ease-in-out;
         }
 
-        .gallery-item img.loaded {
-            opacity: 1; /* Fade-in effect */
-        }
-
-        /* Modal Styles */
         .modal {
             display: none;
             position: fixed;
@@ -142,9 +146,8 @@
             background: #f3f4f6;
         }
 
-        /* Fixed Navigation Arrows */
         .nav-button {
-            position: fixed;
+            position: absolute;
             top: 50%;
             transform: translateY(-50%);
             background: white;
@@ -158,6 +161,10 @@
             justify-content: center;
             z-index: 1010;
             transition: background-color 0.2s;
+        }
+
+        .nav-button:hover {
+            background: #f3f4f6;
         }
 
         .prev-button {
@@ -187,19 +194,39 @@
 
         <div class="gallery">
             <div class="gallery-item">
-                <img src="pics/GetImage.jpg" alt="Image 1">
+                <img src="pics/GetImage.jpg" onclick="openModal(0)">
             </div>
+
             <div class="gallery-item">
-                <img src="pics/90089185_136133974609628_2531136854858509099_n.jpg" alt="Image 2">
+                <img src="pics/90089185_136133974609628_2531136854858509099_n.jpg" onclick="openModal(0)">
             </div>
+
             <div class="gallery-item">
-                <img src="pics/89477420_498120114432834_6004819497717677126_n.jpg" alt="Image 3">
+                <img src="pics/89477420_498120114432834_6004819497717677126_n.jpg" onclick="openModal(0)">
             </div>
+
             <div class="gallery-item">
-                <img src="pics/89385354_204197647483331_4226804155895057781_n.jpg" alt="Image 4">
+                <img src="pics/89385354_204197647483331_4226804155895057781_n.jpg" onclick="openModal(0)">
             </div>
+
             <div class="gallery-item">
-                <img src="pics/90031306_506891396668004_6301638787155542718_n.jpg" alt="Image 5">
+                <img src="pics/90031306_506891396668004_6301638787155542718_n.jpg" onclick="openModal(0)">
+            </div>
+
+            <div class="gallery-item">
+                <img src="pics/IMG-20241230-WA0004.jpg" onclick="openModal(0)">
+            </div>
+
+            <div class="gallery-item">
+                <img src="pics/IMG-20250126-WA0006.jpg" onclick="openModal(0)">
+            </div>
+
+            <div class="gallery-item">
+                <img src="pics/STK-20250127-WA0008.jpg" onclick="openModal(0)">
+            </div>
+
+            <div class="gallery-item">
+                <img src="pics/STK-20250220-WA0008.jpg" onclick="openModal(0)">
             </div>
         </div>
     </main>
@@ -223,13 +250,13 @@
 
     <script>
         const images = [
-            "pics/GetImage.jpg",
-            "pics/90089185_136133974609628_2531136854858509099_n.jpg",
-            "pics/89477420_498120114432834_6004819497717677126_n.jpg",
-            "pics/89385354_204197647483331_4226804155895057781_n.jpg",
-            "pics/90031306_506891396668004_6301638787155542718_n.jpg"
+            "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/images%20%283%29-a1sOk8NzRcqHFWzNCRkdyV7bYq0dzz.jpeg",
+            "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/89477420_498120114432834_6004819497717677126_n.jpg-5hLndc0yQu8XgdCDfQ7geePmUEbD5G.jpeg",
+            "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/90031306_506891396668004_6301638787155542718_n.jpg-BZUtYWL6UpGmPwD141JxjMcwP20Ozp.jpeg",
+            "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/89385354_204197647483331_4226804155895057781_n.jpg-a38jeImbeR7J2LQ5kqnUJQ35aZsJLB.jpeg",
+            "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/90089185_136133974609628_2531136854858509099_n.jpg-wqnjVxTZBuMmMI1t3x0vwIELS3vYGa.jpeg"
         ];
-
+        
         let currentImageIndex = 0;
 
         function openModal(index) {
@@ -262,14 +289,14 @@
             }
         });
 
-        // Add click event listeners to gallery items
-        document.addEventListener('DOMContentLoaded', () => {
-            const galleryItems = document.querySelectorAll('.gallery-item img');
-            galleryItems.forEach((img, index) => {
-                img.addEventListener('click', () => openModal(index));
-                img.onload = () => img.classList.add('loaded'); // Fade-in animation
+        // Preload images
+        window.addEventListener('load', function() {
+            images.forEach(src => {
+                const img = new Image();
+                img.src = src;
             });
         });
     </script>
 </body>
 </html>
+
