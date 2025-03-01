@@ -7,15 +7,42 @@ export default function Gallery() {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null)
 
   const images = [
-    { src: "pics/GetImage.jpg", alt: "Portrait photo" },
-    { src: "pics/90089185_136133974609628_2531136854858509099_n.jpg", alt: "Travel photo with mask" },
-    { src: "pics/89477420_498120114432834_6004819497717677126_n.jpg", alt: "Outdoor photo in field" },
-    { src: "pics/89385354_204197647483331_4226804155895057781_n.jpg", alt: "Barcelona viewpoint photo" },
-    { src: "pics/90031306_506891396668004_6301638787155542718_n.jpg", alt: "Hiking photo with cap" },
-    { src: "pics/IMG-20241230-WA0004.jpg", alt: "Image 6" },
-    { src: "pics/IMG-20250126-WA0006.jpg", alt: "Image 7" },
-    { src: "pics/STK-20250127-WA0008.jpg", alt: "Image 8" },
-    { src: "pics/STK-20250220-WA0008.jpg", alt: "Image 9" },
+    { src: "pics/Untitled1.jpg", alt: "Abstract image" },
+    { src: "pics/Untitled.jpg", alt: "Abstract image" },
+    { src: "pics/STK-20240623-WA0041_1.jpg", alt: "Scenic view" },
+    { src: "pics/STK-20240920-WA0010_1.jpg", alt: "Mountain landscape" },
+    { src: "pics/WhatsApp_Bild_2025-03-01_um_22.21.32_d06e5b31.jpg", alt: "Evening sunset" },
+    { src: "pics/WhatsApp_Bild_2025-03-01_um_22.20.00_d1942d33.jpg", alt: "City skyline" },
+    { src: "pics/WhatsApp_Bild_2025-03-01_um_22.19.59_f6106c95.jpg", alt: "Close-up of a flower" },
+    { src: "pics/WhatsApp_Bild_2025-03-01_um_22.19.59_da091138.jpg", alt: "Nature scene" },
+    { src: "pics/WhatsApp_Bild_2025-03-01_um_22.19.59_7907173d.jpg", alt: "Ocean waves" },
+    { src: "pics/WhatsApp_Bild_2025-03-01_um_22.19.59_034b0281.jpg", alt: "Sunrise over hills" },
+    { src: "pics/WhatsApp_Bild_2025-03-01_um_22.19.59_8c6f1e23.jpg", alt: "Forest trail" },
+    { src: "pics/Screenshot_2024-12-26_225023.png", alt: "Digital art" },
+    { src: "pics/Screenshot_2024-11-09_021052.png", alt: "Tech interface" },
+    { src: "pics/Screenshot_2024-11-09_021048.png", alt: "Gaming setup" },
+    { src: "pics/Screenshot_2024-11-09_021033.png", alt: "Coding environment" },
+    { src: "pics/Screenshot_2024-10-04_030325.png", alt: "Dashboard view" },
+    { src: "pics/Screenshot_2024-06-21_020014.png", alt: "App design" },
+    { src: "pics/Screenshot_2024-06-14_160123.png", alt: "User interface mockup" },
+    { src: "pics/ing.png", alt: "Placeholder image" },
+    { src: "pics/IMG_9884.jpg", alt: "Portrait photo" },
+    { src: "pics/IMG_9872.jpg", alt: "Outdoor adventure" },
+    { src: "pics/IMG_9849.jpg", alt: "Travel moment" },
+    { src: "pics/IMG_9095.jpg", alt: "Cultural event" },
+    { src: "pics/IMG_8429.jpg", alt: "Historical site" },
+    { src: "pics/IMG_8006.jpg", alt: "Urban exploration" },
+    { src: "pics/IMG_8004.jpg", alt: "Street photography" },
+    { src: "pics/IMG_8003.jpg", alt: "Architectural detail" },
+    { src: "pics/IMG_7998.jpg", alt: "Night cityscape" },
+    { src: "pics/IMG_6935.jpg", alt: "Nature walk" },
+    { src: "pics/IMG_0423.jpg", alt: "Family gathering" },
+    { src: "pics/IMG_0422.jpg", alt: "Celebration moment" },
+    { src: "pics/IMG_0421.jpg", alt: "Group photo" },
+    { src: "pics/IMG_0420.jpg", alt: "Friends reunion" },
+    { src: "pics/IMG_0136.jpg", alt: "Casual portrait" },
+    { src: "pics/img.png", alt: "Generic placeholder" },
+    { src: "pics/image.jpg", alt: "Default image" },
   ]
 
   const closeModal = () => setSelectedImageIndex(null)
@@ -66,90 +93,4 @@ export default function Gallery() {
                 </div>
               </div>
             ))}
-          </div>
-        </section>
-      </main>
-
-      {/* Image Modal */}
-      {selectedImageIndex !== null && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4"
-          onClick={closeModal}
-        >
-          <div className="relative max-w-4xl max-h-[90vh] w-full">
-            {/* Close Button */}
-            <button
-              className="absolute top-4 right-4 bg-white rounded-full p-2 z-10"
-              onClick={closeModal}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-            </button>
-
-            {/* Previous Button */}
-            <button
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 z-10"
-              onClick={() => navigateImage(-1)}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M15 18l-6-6 6-6" />
-              </svg>
-            </button>
-
-            {/* Next Button */}
-            <button
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 z-10"
-              onClick={() => navigateImage(1)}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M9 18l6-6-6-6" />
-              </svg>
-            </button>
-
-            {/* Modal Image */}
-            <div className="relative h-full">
-              <Image
-                src={images[selectedImageIndex].src || "/placeholder.svg"}
-                alt={images[selectedImageIndex].alt}
-                fill
-                className="object-contain"
-              />
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
-  )
-}
+          </div
