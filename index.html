@@ -147,9 +147,9 @@
         }
 
         .nav-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
+            position: fixed; /* Fixed position relative to the viewport */
+            top: 50%; /* Center vertically */
+            transform: translateY(-50%); /* Adjust for exact centering */
             background: white;
             border: none;
             border-radius: 50%;
@@ -163,12 +163,12 @@
             transition: background-color 0.2s;
         }
 
-        .nav-button:hover {
-            background: #f3f4f6;
+        .prev-button {
+            left: 1rem; /* Fixed distance from the left edge of the viewport */
         }
 
-        .prev-button {
-            left: 1rem;
+        .next-button {
+            right: 1rem; /* Fixed distance from the right edge of the viewport */
         }
 
         .next-button {
