@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export default function Gallery() {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null)
@@ -54,7 +54,15 @@ export default function Gallery() {
     { src: "pics/image.jpg", alt: "Default image" }
   ]
 
-  const closeModal = () => setSelectedImageIndex(null)
+  const openModal = (index: number) => {
+    setSelectedImageIndex(index)
+    window.history.pushState({ modalOpen: true }, "")
+  }
+
+  const closeModal = () => {
+    setSelectedImageIndex(null)
+    window.history.back()
+  }
 
   const navigateImage = (direction: number) => {
     if (selectedImageIndex !== null) {
@@ -62,6 +70,14 @@ export default function Gallery() {
       setSelectedImageIndex(newIndex)
     }
   }
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setSelectedImageIndex(null)
+    }
+    window.addEventListener("popstate", handlePopState)
+    return () => window.removeEventListener("popstate", handlePopState)
+  }, [])
 
   return (
     <div className="min-h-screen bg-gray-50 font-poppins">
@@ -84,21 +100,28 @@ export default function Gallery() {
 
         {/* Image Gallery */}
         <section>
-         <div className="relative aspect-square">
-        <Image
-            src={image.src || "/placeholder.svg"}
-            alt={image.alt}
-            width={400}
-            height={400}
-            className="object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-            onLoadingComplete={(img) => img.classList.add("opacity-100")}
-            placeholder="blur"
-            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
-      />
-          <div className="absolute inset-0 flex items-center justify-center bg-gray-100 opacity-0 group-hover:opacity-100 transition-opacity">
-        <div className="loading-spinner"></div>
-    </div>
-  </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {images.map((image, index) => (
+              <div
+                key={index}
+                className="overflow-hidden rounded-lg shadow-lg transition-transform hover:scale-[1.02] cursor-pointer relative aspect-square group"
+                onClick={() => openModal(index)}
+              >
+                <Image
+                  src={image.src || "/placeholder.svg"}
+                  alt={image.alt}
+                  width={400}
+                  height={400}
+                  className="object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                  onLoadingComplete={(img) => img.classList.add("opacity-100")}
+                  placeholder="blur"
+                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 flex items-center justify-center bg-gray-100 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="loading-spinner"></div>
+                </div>
+              </div>
             ))}
           </div>
         </section>
