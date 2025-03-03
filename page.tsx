@@ -84,26 +84,21 @@ export default function Gallery() {
 
         {/* Image Gallery */}
         <section>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {images.map((image, index) => (
-              <div
-                key={index}
-                className="overflow-hidden rounded-lg shadow-lg transition-transform hover:scale-[1.02] cursor-pointer"
-                onClick={() => setSelectedImageIndex(index)}
-              >
-                <div className="relative aspect-square">
-                 <Image
-                    src={image.src || "/placeholder.svg"}
-                      alt={image.alt}
-                      width={400} // Set an appropriate width
-                      height={400} // Set an appropriate height
-                      className="object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                      onLoadingComplete={(img) => img.classList.add("opacity-100")}
-                      placeholder="blur" // Adds a blur effect while loading
-                      blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==" // Placeholder base64 for blur
-                />
-                </div>
-              </div>
+         <div className="relative aspect-square">
+        <Image
+            src={image.src || "/placeholder.svg"}
+            alt={image.alt}
+            width={400}
+            height={400}
+            className="object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+            onLoadingComplete={(img) => img.classList.add("opacity-100")}
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+      />
+          <div className="absolute inset-0 flex items-center justify-center bg-gray-100 opacity-0 group-hover:opacity-100 transition-opacity">
+        <div className="loading-spinner"></div>
+    </div>
+  </div>
             ))}
           </div>
         </section>
