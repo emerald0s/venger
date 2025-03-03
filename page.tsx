@@ -92,13 +92,16 @@ export default function Gallery() {
                 onClick={() => setSelectedImageIndex(index)}
               >
                 <div className="relative aspect-square">
-                  <Image
+                 <Image
                     src={image.src || "/placeholder.svg"}
-                    alt={image.alt}
-                    fill
-                    className="object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                    onLoadingComplete={(img) => img.classList.add("opacity-100")}
-                  />
+                      alt={image.alt}
+                      width={400} // Set an appropriate width
+                      height={400} // Set an appropriate height
+                      className="object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                      onLoadingComplete={(img) => img.classList.add("opacity-100")}
+                      placeholder="blur" // Adds a blur effect while loading
+                      blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==" // Placeholder base64 for blur
+                />
                 </div>
               </div>
             ))}
