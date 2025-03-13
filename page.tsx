@@ -18,7 +18,6 @@ export default function Gallery() {
     { src: "pics/STK-20250220-WA0008.jpg", alt: "Image 9" },
     { src: "pics/Untitled1.jpg", alt: "Abstract image" },
     { src: "pics/Untitled.jpg", alt: "Abstract image" },
-    { src: "pics/STK-20240623-WA0041_1.jpg", alt: "Scenic view" },
     { src: "pics/STK-20240920-WA0010_1.jpg", alt: "Mountain landscape" },
     { src: "pics/WhatsApp_Bild_2025-03-01_um_22.21.32_d06e5b31.jpg", alt: "Evening sunset" },
     { src: "pics/WhatsApp_Bild_2025-03-01_um_22.20.00_d1942d33.jpg", alt: "City skyline" },
@@ -40,10 +39,7 @@ export default function Gallery() {
     { src: "pics/IMG_9849.jpg", alt: "Travel moment" },
     { src: "pics/IMG_9095.jpg", alt: "Cultural event" },
     { src: "pics/IMG_8429.jpg", alt: "Historical site" },
-    { src: "pics/IMG_8006.jpg", alt: "Urban exploration" },
     { src: "pics/IMG_8004.jpg", alt: "Street photography" },
-    { src: "pics/IMG_8003.jpg", alt: "Architectural detail" },
-    { src: "pics/IMG_7998.jpg", alt: "Night cityscape" },
     { src: "pics/IMG_6935.jpg", alt: "Nature walk" },
     { src: "pics/IMG_0423.jpg", alt: "Family gathering" },
     { src: "pics/IMG_0422.jpg", alt: "Celebration moment" },
@@ -93,7 +89,9 @@ export default function Gallery() {
           <h2 className="text-3xl font-bold mb-6 text-center">About Me</h2>
           <div className="prose max-w-none">
             <p className="text-gray-600 text-center" dir="rtl">
-              שלום, שמי אסף ונגר, ואני חבר וחניך גאה בארגון הטרור "כנפיים של קרמבו". יש האומרים אפילו שזה ארגון הטרור האהוב עלי. בנוסף לזה אני נאו נאצי🙋‍♂️🇩🇪🐐👑.
+              אסף ונגר 
+              תאריך לידה  21/5/2009 
+              כנעני
             </p>
           </div>
         </section>
